@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+:root {
+  --bkg-color: linear-gradient(to right, rgb(154, 81, 209), rgb(57, 57, 223));
+  --price-color: rgb(7, 188, 7);
+  --gray-color: rgb(144, 141, 141);
+  --black-700: rgb(29, 29, 29);
+  --white-900: #ffffff;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.2;
+  background: var(--bkg-color);
+  color: black;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.modalContainer {
+  width: 100vw;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 50px;
+}
+
+.movieCard {
+  position: relative;
+  text-align: center;
+  width: 250px;
+  height: 500px;
+  cursor: pointer;
+}
+
+.poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 200px;
+  box-shadow: 8px 10px 22px var(--black-700);
+  cursor: pointer;
+  z-index: 5;
+  transition: 0.25s ease-out;
+}
+
+.movieCard:hover .poster {
+  transform: translateY(-10%);
+}
+
+.cardBack {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background-color: var(--white-900);
+  color: black;
+  width: 100%;
+  height: 500px;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 10px;
+  box-shadow: 8px 10px 22px var(--black-700);
+  transition: 0.5s ease-out;
+  transform: scale(0.5);
+}
+
+.movieCard:hover > .cardBack {
+  transform: scale(1);
+  opacity: 1;
+  /*
+  animation: cardShow 0.5s ease-out;
+  animation-fill-mode: forwards;*/
+}
+
+/*
+@keyframes cardShow {
+  0% {
+    opacity: 0;
+    scale: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}*/
+
+.movieTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin: 5px;
+  padding: 0px 10px;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: var(--gray-color);
+  margin-bottom: 20px;
+  padding: 0px 30px;
+}
+
+.priceBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 5px;
+  margin-bottom: 5px;
+  padding: 0px 10px;
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--price-color);
+}
+
+.prevPrice {
+  font-size: 0.75rem;
+  color: var(--gray-color);
+  text-decoration: line-through;
+}
+
+.buyNow {
+  width: 100%;
+  background-color: var(--black-700);
+  color: var(--white-900);
+  box-shadow: none;
+  border: none;
+  border-radius: 0%;
+  bottom: 0;
+  padding: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: 250ms linear;
+  cursor: pointer;
+}
+
+.buyNow:hover {
+  background-color: var(--price-color);
+}
